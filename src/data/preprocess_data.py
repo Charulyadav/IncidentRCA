@@ -194,7 +194,7 @@ def verify_output():
     print(f"\nlabel_mappings.json:")
     print(f"  Categories: {len(mappings['label_to_id'])}")
 
-    print("\n✅ All files verified successfully!")
+    print("\nAll files verified successfully!")
 
 if __name__ == "__main__":
     df = load_data()
