@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+venv/
+.env
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Data files (optional - see note below)
+# data/raw/
+# data/processed/
+
+# Outputs
+outputs/*.png
+outputs/*.jpg
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/

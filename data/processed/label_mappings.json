@@ -1,0 +1,30 @@
+{
+  "label_to_id": {
+    "Configuration Issue": 0,
+    "Database Issue": 1,
+    "Deployment Issue": 2,
+    "Infrastructure Issue": 3,
+    "Integration Issue": 4,
+    "Memory Issue": 5,
+    "Network Hardware": 6,
+    "Network Issue": 7,
+    "Other": 8,
+    "Performance Issue": 9,
+    "Security Issue": 10,
+    "Software Error": 11
+  },
+  "id_to_label": {
+    "0": "Configuration Issue",
+    "1": "Database Issue",
+    "2": "Deployment Issue",
+    "3": "Infrastructure Issue",
+    "4": "Integration Issue",
+    "5": "Memory Issue",
+    "6": "Network Hardware",
+    "7": "Network Issue",
+    "8": "Other",
+    "9": "Performance Issue",
+    "10": "Security Issue",
+    "11": "Software Error"
+  }
+}
