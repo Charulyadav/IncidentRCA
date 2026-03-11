@@ -5,6 +5,7 @@ __pycache__/
 .Python
 venv/
 .env
+.venv/
 
 # IDE
 .idea/
@@ -25,3 +26,5 @@ Thumbs.db
 
 # Jupyter
 .ipynb_checkpoints/
+.ipynb
+sample.ipynb

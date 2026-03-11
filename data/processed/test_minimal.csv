@@ -1,0 +1,712 @@
+category_encoded,clean_col
+5,kotlin coroutine context leak payment svc  useast coroutinescope launched with globalscope retains reference to request context after request completes causing memory leak
+11,regex dos via backtracking during peak hours email validation regex uses catastrophic backtracking input of  chars with trailing invalid char causes  cpu for s
+1,backup restoration to wrong environment payment svc  useast production backup accidentally restored to staging during recovery drill overwriting staging with production pii data
+7,tcp window scaling disabled by middlebox  recurring corporate firewall strips tcp window scaling option throughput capped at kb per connection large file transfers slow
+9,synchronous logging blocks request thread postdeployment log appender writes to disk synchronously on request thread slow disk io during log flush adds ms to every response
+7,ingress controller not reloading after cert update after upgrade tls certificate renewed but nginx ingress not reloaded old expired cert served until manual reload ssl warnings for  hours
+11,regex catastrophic backtracking nested quantifiers in url validation regex cause exponential backtracking on crafted char input
+9,service mesh proxy cpu overhead istio sidecar proxies consume  of pod cpu budget on highthroughput services adding ms to each request
+5,php session memory accumulation phpfpm workers accumulate large session data in memory over time worker restart every h doesnt free memory fast enough
+0,health check endpoint returns  when unhealthy on new infrastructure health check always returns  regardless of internal state load balancer keeps sending traffic to failing instances
+10,missing rate limiting on otp endpoint payment svc  useast sms otp verification endpoint has no rate limiting attacker can attempt m otp combinations to bypass fa in hours
+11,stale cache serving deleted content  recurring cache eviction on delete not propagated to all nodes some users see deleted articles for up to  minutes
+1,backup restore takes longer than rto during peak hours full database backup tb restore time  hours exceeds hour rto no incremental backup strategy in place
+1,incorrect unique constraint allows duplicates unique constraint on email is casesensitive userexamplecom and userexamplecom both inserted causing duplicate account
+11,memory leak in http client pool order svc  useast http response bodies not closed after reading causing connection objects to accumulate in oldgen heap
+3,systemd unit dependency cycle prevents start after upgrade systemd unit file has circular dependency service fails to start after reboot manual intervention required each time
+1,missing not null constraint allowing nulls user svc  useast amount column in payments table missing not null constraint application bug inserts null causing division by zero in reports
+11,arrayindexoutofbounds in pagination payment svc  useast page offset calculation does not account for last page having fewer records than page size
+7,vpn split tunnel leaks internal traffic after migration vpn split tunnel incorrectly routes internal subnet traffic outside tunnel sensitive requests traverse public internet
+9,eager loading all relations in orm orm query uses joinfetch on all relations api returning  users loads all orders and items for all users into memory
+1,connection pool exhaustion under load after upgrade app opens new db connection per request without pooling  concurrent users exhaust connection limit causing new requests to queue
+1,database password stored in plaintext config database credentials stored in plaintext applicationproperties committed to git repo credentials exposed publicly
+7,asymmetric routing breaking stateful firewall search svc  useast traffic ingresses through aza but egresses through azb stateful firewall drops return packets as having no session
+2,service account missing required permission deployment uses service account without read permission on configmaps app fails to start with rbac forbidden error
+2,config change deployed without service restart after upgrade environment variable updated in configmap but service reads config only at startup old value used until manual pod restart
+11,incorrect serialization of nested objects postdeployment custom serializer doesnt recurse into nested objects nested data serialized as object reference instead of value
+7,ecmp hash imbalance overloads single path ecmp flow hashing places  of traffic on one of four paths due to poor hash distribution path saturated at 
+11,offbyone error in buffer read after migration loop reads one byte past buffer end in binary protocol parser causing heap corruption under specific packet sizes
+0,connection timeout set to zero payment svc  useast db connection timeout set to  infinite wait hung db server causes all application threads to wait indefinitely
+5,memorymapped file grows without limit postdeployment appendonly memorymapped file grows with writes but never remapped virtual address space exhausted on bit process
+7,nat gateway port exhaustion auth svc  useast highvolume lambda functions share single nat gateway  port limit reached causing new outbound connections to fail
+10,insecure password reset token during peak hours password reset token generated with mathrandom predictable token allows attacker to take over any account by timing reset
+4,gdpr data deletion not propagated to integrations payment svc  useast user deletion from main system not propagated to  thirdparty integrations pii persists in external systems violating gdpr
+7,syn cookies disabled during syn flood syn cookie protection disabled on load balancer syn flood attack exhausts halfopen connection table new connections rejected
+3,hardware clock drift after hypervisor migration postdeployment vm migrated to new hypervisor hardware clock resets hour drift causes event ordering failures and token expiry
+11,memory leak in event listener in production dom event listeners attached on component mount never removed on unmount thousands of listeners accumulate over session
+11,xss in search results page notification svc  useast search query string reflected in results page title without html encoding enabling stored xss via url sharing
+3,entropy pool starvation slows tls under high load virtual machine has low entropy devrandom blocks tls key generation new connections take  seconds to establish
+4,circular dependency between services causes deadlock under high load service a calls b while holding lock service b calls a to complete both services wait indefinitely timeout after s
+8,insufficient rollback plan for database migration database migration has no rollback procedure migration fails halfway forwardonly migration cannot be reverted emergency restore required
+11,incorrect enum ordinal used for persistence enum stored by ordinal inserting new enum value in middle changes ordinals of existing values causing data misinterpretation
+10,insecure password reset token password reset token generated with mathrandom predictable token allows attacker to take over any account by timing reset
+0,max connections too low for traffic volume web server maxconnections set to  peak traffic hits  concurrent users excess connections rejected with 
+2,incorrect service selector misroutes traffic on new infrastructure kubernetes service selector uses appfrontend but pods labeled appfrontendv service routes to no pods all requests 
+1,long blob stored inline bloats row postdeployment pdf attachments stored as blobs inline in main table row size averages mb table scan reads unnecessary attachment data
+10,insecure deserialization in session token search svc  useast php session uses unserialize on cookie value attacker crafts malicious serialized object triggering rce gadget chain
+11,feature flag check inverted on new infrastructure boolean flag check uses  operator incorrectly new feature shown to all users when flag is off instead of on
+9,cold start latency in serverless function under high load lambda function initializes large ml model on cold start cold start takes  seconds first request after idle times out
+11,doublefree bug in native library jni wrapper calls free on buffer already freed by native library causing heap corruption and jvm crash
+2,service account token expired middeploy search svc  useast longrunning bluegreen deployment exceeds hour service account token ttl causing deploy to fail halfway through
+3,raid degraded after silent disk failure after migration one disk in raid array failed silently  months ago second disk failure takes array offline with no redundancy remaining
+8,insufficient rollback plan for database migration postdeployment database migration has no rollback procedure migration fails halfway forwardonly migration cannot be reverted emergency restore required
+1,character set mismatch in join payment svc  useast users table uses utf collation orders table uses latin join produces illegal mix of collations error in mysql
+2,docker layer cache invalidated on every build copy   placed before run npm install in dockerfile any code change invalidates npm install cache layer
+2,incorrect service selector misroutes traffic on new infrastructure kubernetes service selector uses appfrontend but pods labeled appfrontendv service routes to no pods all requests 
+7,dns cache poisoning attack payment svc  useast dns resolver vulnerable to cache poisoning attacker poisons cache to redirect payment domain to malicious ip
+7,certificate pinning breaks after rotation  recurring mobile app pins tls certificate cert rotated on schedule all pinned app versions immediately fail with ssl error
+2,environment variable not set in production under high load stripesecretkey env var missing in prod container spec payment processing fails with authentication error on all requests
+0,session timeout too long application session timeout set to  days stolen session token valid for month increases blast radius of session hijack
+0,firewall allowlist too permissive egress firewall allows  data exfiltration possible to any external ip violates compliance requirements
+10,ldap injection in search filter after upgrade user input appended directly to ldap filter attacker injects uid to bypass authentication
+8,incorrect documentation causes misconfiguration internal wiki documents wrong port for new authentication service engineers configure firewall with wrong port auth fails for  hours
+2,helm chart uses wrong image tag under high load helm chart defaults to image tag latest prod deploy pulls newer untested image than was used in staging
+10,dependency confusion attack vector private package name not reserved on public npm registry attacker publishes malicious package with same name at higher version
+1,json column full scan on nested field on new infrastructure query filters on nested json field without functional index full table scan on m row table for every request
+2,deployment configmap applied after pods start race condition between configmap apply and pod creation pods start before configmap is available and crash on missing config
+7,network namespace leak in container runtime containers stopped but network namespaces not cleaned up kernel namespace table fills after  container restarts
+1,read replica lag causes stale reads after migration app reads user balance from replica with s lag payment check reads prepayment balance allowing overdraft
+8,physical damage to enclosure physical damage to enclosure
+11,broken pagination cursor after delete payment svc  useast cursorbased pagination uses row id as cursor deleted rows shift offsets causing records to be skipped
+10,graphql introspection enabled in production payment svc  useast graphql introspection endpoint enabled in production exposing complete api schema to attackers for reconnaissance
+7,kubernetes nodeport conflicts with host port nodeport  conflicts with hostlevel nginx on port  causing packet drops for that nodeport service
+4,erp integration losing decimal precision notification svc  useast erp system uses  decimal places integration truncates to  places before sending  rounding accumulates to k monthly error
+2,service account token expired middeploy longrunning bluegreen deployment exceeds hour service account token ttl causing deploy to fail halfway through
+7,nat gateway port exhaustion user svc  useast highvolume lambda functions share single nat gateway  port limit reached causing new outbound connections to fail
+5,jvm heap oom from unbounded cache auth svc  useast guava loadingcache has no maximum size product cache grows to gb over h causing oom and jvm crash
+3,cloud account billing limit causing service shutdown search svc  useast aws account hits k billing alert limit automatic account suspension shuts down all production services without warning
+10,timing attack on password comparison during peak hours password comparison uses string equality instead of constanttime comparison timing sidechannel allows password enumeration
+0,incorrect jvm gc algorithm for workload in production cms gc used for lowlatency service cms concurrent mode failure triggers full gc unpredictable pause spikes
+7,load balancer sticky sessions misconfigured session affinity cookie name changed in lb config without updating app users lose session on every request
+1,long blob stored inline bloats row after upgrade pdf attachments stored as blobs inline in main table row size averages mb table scan reads unnecessary attachment data
+1,backup restore takes longer than rto during peak hours full database backup tb restore time  hours exceeds hour rto no incremental backup strategy in place
+1,view not updated after table schema change  recurring column renamed in base table view still references old column name view queries fail silently returning nulls
+2,deployment stuck in terminating state payment svc  useast pod stuck in terminating for  hours due to finalizer not removed by failing webhook preventing node drain
+3,grub misconfiguration prevents boot after kernel update kernel update changes kernel path grub config not updated server unbootable after restart requires console access to fix
+5,thread local variable accumulates state threadlocal variable stores perrequest context but never cleared thread pool reuses threads carrying stale state
+11,incorrect http method in rest client during peak hours sdk uses get instead of post for create endpoint large payloads silently truncated by url length limit causing data loss
+1,slow aggregation on unpartitioned table search svc  useast monthly revenue aggregation queries  years of daily transactions in single table taking  minutes to complete
+2,service account token expired middeploy order svc  useast longrunning bluegreen deployment exceeds hour service account token ttl causing deploy to fail halfway through
+2,feature flag not disabled before deploy search svc  useast new feature rolled out with flagtrue by default deploy to production exposes incomplete feature to all users immediately
+1,write amplification from tiny transactions payment svc  useast application sends  singlerow insert transactions per second causing wal write amplification and io saturation
+5,offheap direct buffer leak search svc  useast netty directbytebuffer allocations not released by connection handlers offheap memory grows gb per hour
+11,missing null check after api response after upgrade api response parsed assuming data field always present null response on empty result causes npe in downstream handler
+8,insufficient rollback plan for database migration in production database migration has no rollback procedure migration fails halfway forwardonly migration cannot be reverted emergency restore required
+11,nullpointerexception in user login notification svc  useast session object not initialized before access in login handler when cookie is malformed
+3,selinux policy blocks app from writing logs in production selinux enforcing mode blocks application from writing to custom log directory all log writes silently dropped
+7,vlan tagging misconfiguration drops traffic switch port configured as access port instead of trunk vlantagged frames from hypervisor dropped silently
+1,orphaned blob files after record delete application deletes db record but not associated s file gb of orphaned files accumulate over  months
+2,ci pipeline fails on dependency conflict payment svc  useast two transitive dependencies require incompatible versions of shared library causing build failure in ci but not locally
+3,ssl certificate expired in internal ca  recurring internal certificate authority certificate expired all services using internal pki reject connections widespread internal outage
+10,graphql introspection enabled in production auth svc  useast graphql introspection endpoint enabled in production exposing complete api schema to attackers for reconnaissance
+7,http goaway frame flood auth svc  useast load balancer sends goaway frames to upstream service faster than service can process causing connection storm
+0,rate limit set to zero blocking all requests payment svc  useast rate limit configuration accepts  as unlimited but implementation treats  as zero allowed all requests blocked
+3,kernel oom killer terminating db process user svc  useast oom killer selects postgresql process for termination during memory pressure event causing unexpected db restart
+1,database password stored in plaintext config after upgrade database credentials stored in plaintext applicationproperties committed to git repo credentials exposed publicly
+3,log partition full prevents service start log partition filled by debug logging left on after incident service checks log directory on start and refuses to run
+0,kubernetes resource requests not set postdeployment pods deployed without resource requests scheduler cannot make informed placement decisions noisy neighbor issues
+7,tcp window scaling disabled by middlebox during peak hours corporate firewall strips tcp window scaling option throughput capped at kb per connection large file transfers slow
+11,deadlock in orm lazy loading in production orm lazyloads related entity inside transaction that holds lock on parent child query waits for same lock causing deadlock
+2,incorrect replica count after scaling event during peak hours hpa max replicas set to  traffic spike requires  replicas service degrades because autoscaler cannot exceed limit
+0,request timeout too aggressive auth svc  useast api gateway timeout set to s report generation endpoint legitimately takes s causing false timeout errors for valid requests
+1,slow aggregation on unpartitioned table payment svc  useast monthly revenue aggregation queries  years of daily transactions in single table taking  minutes to complete
+11,nullpointerexception in user login payment svc  useast session object not initialized before access in login handler when cookie is malformed
+5,python list comprehension materializes full dataset under high load list comprehension loads entire gb dataset into memory for singlepass processing oom in gb ram machine
+9,unindexed sort on large result set payment svc  useast order by createdat desc on unindexed column requires full m row sort in memory taking s for paginated list api
+11,hardcoded timeout too short for large payload http client timeout hardcoded at s large file exports consistently time out even though server completes in s
+2,config change deployed without service restart environment variable updated in configmap but service reads config only at startup old value used until manual pod restart
+10,missing security headers allow clickjacking after migration xframeoptions and contentsecuritypolicy headers absent attacker embeds site in iframe for clickjacking attack
+10,insecure password reset token in production password reset token generated with mathrandom predictable token allows attacker to take over any account by timing reset
+10,missing security headers allow clickjacking under high load xframeoptions and contentsecuritypolicy headers absent attacker embeds site in iframe for clickjacking attack
+7,dns cache poisoning attack dns resolver vulnerable to cache poisoning attacker poisons cache to redirect payment domain to malicious ip
+8,oncall rotation gap over holiday postdeployment holiday oncall schedule not updated incident during holiday has no assigned responder minute response delay
+9,chatty microservice calling neighbor x per request payment svc  useast product service makes  individual calls to pricing service per page render instead of batching adds ms latency
+2,rolling update causes version mismatch during rolling deploy old and new pods run simultaneously api v and v pods handle same request chain causing  errors
+4,partner certificate pinned to old leaf cert in production integration pins partners leaf certificate partner rotates cert on schedule integration breaks until pin updated
+2,helm chart uses wrong image tag after migration helm chart defaults to image tag latest prod deploy pulls newer untested image than was used in staging
+2,nodeport range conflict with host service nodeport assigned port  already used by host monitoring agent connections intermittently route to wrong service
+5,excessive string interning auth svc  useast application interns all userinput strings via stringintern string pool grows to gb with unique user data permanently held
+3,selinux policy blocks app from writing logs selinux enforcing mode blocks application from writing to custom log directory all log writes silently dropped
+0,default credentials not changed under high load monitoring system deployed with default adminadmin credentials accessible from internal network security scan flags finding
+3,raid degraded after silent disk failure on new infrastructure one disk in raid array failed silently  months ago second disk failure takes array offline with no redundancy remaining
+4,graphql n across service boundary postdeployment graphql resolver fetches related entities one at a time across service boundary  nodes trigger  http calls
+11,missing null check after api response on new infrastructure api response parsed assuming data field always present null response on empty result causes npe in downstream handler
+2,wrong docker registry credentials image pull secret references old registry credentials after registry migration all pods fail with imagepullbackoff
+11,incorrect scope on variable declaration variable declared with var inside ifblock hoisted to function scope value leaked across iterations causing wrong calculations
+9,unoptimized image served to mobile in production fullresolution mb hero images served to mobile clients no webp conversion or responsive images page weight excessive
+1,longrunning transaction holds lock  recurring analytics query wrapped in transaction holds row locks for  minutes concurrent updates queue and timeout
+7,vlan tagging misconfiguration drops traffic after upgrade switch port configured as access port instead of trunk vlantagged frames from hypervisor dropped silently
+10,verbose error messages leak stack traces after upgrade production error handler returns full stack trace including file paths and library versions in api response
+4,message queue consumer not idempotent postdeployment consumer processes message then commits offset crash between process and commit causes redelivery duplicate orders created
+3,swap thrashing under memory pressure search svc  useast vmswappiness aggressively swaps application memory to disk swap io causes x latency increase under load
+2,job parallelism set too high overwhelms db batch job parallelism set to   parallel workers hammer database with  concurrent queries causing db cpu spike
+4,thirdparty api breaking change not detected after migration vendor changed response field from string to array without versioning parser throws exception on new format integration down
+5,jvm heap too small for working set after migration jvm heap set to mb but application working set is gb continuous gc attempts to reclaim memory throughput drops 
+5,php session memory accumulation payment svc  useast phpfpm workers accumulate large session data in memory over time worker restart every h doesnt free memory fast enough
+7,dns roundrobin ignores server health postdeployment dns a records point to  servers using roundrobin one server down but dns still returns its ip  of time
+5,weak reference not used in cache implementation after migration cache stores strong references to large objects gc cannot reclaim under memory pressure oom before eviction triggered
+1,view not updated after table schema change on new infrastructure column renamed in base table view still references old column name view queries fail silently returning nulls
+11,incorrect sort comparator returns nan sort comparator subtracts dates directly undefined dates return nan causing inconsistent array ordering across browsers
+11,path traversal in file download notification svc  useast usersupplied filename parameter not sanitized etcpasswd returns system file contents
+1,incorrect isolation level causing dirty reads user svc  useast transaction isolation set to read uncommitted for reporting queries reports show partiallywritten uncommitted data
+0,wrong s region in sdk config payment svc  useast s sdk configured with useast but bucket created in euwest all uploads fail with redirect response ignored by sdk
+6,spanning tree loop causes broadcast storm spanning tree bpdu guard not enabled on access port rogue switch connected loop created broadcast storm saturates network
+7,nat gateway port exhaustion search svc  useast highvolume lambda functions share single nat gateway  port limit reached causing new outbound connections to fail
+7,websocket timeout from proxy  recurring nginx proxyreadtimeout s websocket connections idle for s dropped by proxy realtime features disconnect silently
+9,missing http caching headers for static assets in production static js and css served without cachecontrol headers browser refetches all assets on every page load adding s
+7,ntp desync breaks tls certificate validation  recurring ntp daemon stopped on  servers clock drifts  minutes tls handshake fails because certificate not yet valid
+5,ggc humongous allocation triggers full gc in production single mb allocation exceeds g region size triggering humongous allocation path causes stoptheworld full gc
+2,infrastructure provisioned in wrong account auth svc  useast terraform aws provider profile defaults to dev account production infrastructure deployed to dev account by mistake
+4,encoding mismatch corrupts multibyte characters source system uses latin target system expects utf accented characters in names corrupted during transfer
+7,anycast route withdrawal dropping traffic misconfigured health check withdraws anycast route for healthy datacenter causing all global traffic to reroute unexpectedly
+7,ingress controller not reloading after cert update after migration tls certificate renewed but nginx ingress not reloaded old expired cert served until manual reload ssl warnings for  hours
+3,runaway process consumes all cpu infinite loop in data processing script pins all cpu cores other services starved monitoring alert triggers after  minutes
+0,max upload concurrency set too high order svc  useast max concurrent uploads set to  s throttling kicks in at  concurrent requests causing  errors for uploads
+3,cpu throttling due to cfs quota in production kubernetes cpu limit set too low cfs scheduler throttles container  of the time latency spikes every ms
+6,optical transceiver power below receive sensitivity after upgrade fiber patch cable bend radius exceeded optical power loss causes bit error rate above threshold link degrades intermittently
+3,misconfigured cloud storage acl making data public search svc  useast s bucket acl changed to publicread during debugging session customer invoice pdfs publicly accessible for  hours
+9,template rendering not cached on new infrastructure complex jinja template compiled from source on every request ms compilation overhead dominates response time
+10,exposed admin panel without authentication actuator management endpoints exposed on public port without authentication actuatorenv returns all environment variables
+9,excessive object allocation in hot path request parser allocates  new objects per request in tight loop gc pressure from shortlived objects causes ms gc pauses every s
+8,intermittent link flaps intermittent link flaps
+10,missing security headers on api responses search svc  useast api responses lack xcontenttypeoptions xframeoptions and hsts headers enabling mime sniffing and clickjacking attacks
+2,image tag latest used in production auth svc  useast deployment manifest uses imagelatest routine image rebuild with breaking change autodeploys to production on pod restart
+5,thread local variable accumulates state threadlocal variable stores perrequest context but never cleared thread pool reuses threads carrying stale state
+10,sql injection in order search order search endpoint concatenates user input into sql where clause enabling data exfiltration via union attack
+3,kernel oom killer terminates database process on new infrastructure memory overcommit allows allocations beyond physical ram kernel oom killer selects database process data loss on termination
+9,chatty microservice calling neighbor x per request search svc  useast product service makes  individual calls to pricing service per page render instead of batching adds ms latency
+1,database password stored in plaintext config postdeployment database credentials stored in plaintext applicationproperties committed to git repo credentials exposed publicly
+11,floating point comparison in loop terminator on new infrastructure loop uses  to compare float accumulator to  floating point drift causes infinite loop for certain step sizes
+3,single point of failure in bastion host payment svc  useast all ssh access routes through single bastion bastion host failure locks out all engineers during incident response
+4,external api schema change breaking parser downstream api adds required field without versioning integration parser throws on missing field breaking all requests
+11,integer overflow in order quantity during peak hours order quantity stored as int values above  wrap to negative causing inventory to be credited instead of debited
+9,database cursor not closed after streaming user svc  useast serverside db cursor opened for streaming large result set not closed on client disconnect cursors accumulate locking table
+5,retained reference in static collection leaks memory in production static hashmap holds references to session objects sessions never removed on expiry heap grows until oom after  hours
+0,queue visibility timeout shorter than job duration after upgrade sqs visibility timeout s job takes s message becomes visible again midprocessing duplicate processing occurs
+0,incorrect jvm gc algorithm for workload cms gc used for lowlatency service cms concurrent mode failure triggers full gc unpredictable pause spikes
+4,payment gateway double charge on retry notification svc  useast network timeout causes charge request retry without idempotency key gateway processes both requests charging customer twice
+11,silent exception swallow in catch block  recurring catch block logs exception but returns null caller assumes success and proceeds with null object causing cascading failures
+2,bluegreen switch before health check passes automated pipeline switches traffic to green environment before health check endpoint returns  users hit starting up service
+9,inefficient pagination using offset in production pagination uses offset n limit  deep pages require scanning all previous rows page  takes  seconds to load
+3,hypervisor live migration causing downtime user svc  useast live vm migration during cloud maintenance window causes second network disruption unhandled by singleinstance app
+1,incorrect rollup misses last day on new infrastructure monthly rollup uses between with exclusive end date last day of month excluded from aggregation causing incorrect totals
+0,cache size set below minimum working set payment svc  useast redis maxmemory set to mb working set of hot keys is mb constant eviction causes  cache miss rate
+11,silent exception swallow in catch block in production catch block logs exception but returns null caller assumes success and proceeds with null object causing cascading failures
+11,incorrect http status code on validation error notification svc  useast validation failures return http  instead of  causing clients to retry instead of fixing request
+1,view not updated after table schema change in production column renamed in base table view still references old column name view queries fail silently returning nulls
+7,bandwidth throttling affects all tenants in production shared bandwidth limiter bug applies singletenant throttle to all tenants on same host all tenants slowed during spike
+8,human error deletes production database engineer runs destructive sql against production db instead of staging no confirmation prompt data loss requires backup restore
+4,event schema version mismatch on new infrastructure producer upgraded to schema v but consumer still on v consumer fails to deserialize new fields messages deadlettered
+1,replication slot not consumed causes disk fill after migration logical replication slot consumer stopped wal files retained indefinitely disk fills up in  hours crashing primary
+4,soap envelope namespace mismatch partner wsdl updated with new namespace prefix client soap envelope uses old prefix partner rejects all requests
+3,hardware clock drift after hypervisor migration under high load vm migrated to new hypervisor hardware clock resets hour drift causes event ordering failures and token expiry
+6,switch backplane oversubscribed in production port gbe switch with gbe uplink  ports transmitting simultaneously oversubscribes uplink x buffer overflow and drops
+4,thirdparty api rate limit not handled user svc  useast integration ignores http  responses from stripe retries immediately increasing rate limit violations exponentially
+3,grub misconfiguration prevents boot after kernel update after upgrade kernel update changes kernel path grub config not updated server unbootable after restart requires console access to fix
+4,oauth token not refreshed before expiry after migration access token stored but expiry not tracked token expires midsession api calls fail with  until user reauthenticates
+1,read replica lag causes stale reads after migration app reads user balance from replica with s lag payment check reads prepayment balance allowing overdraft
+5,memory leak in webassembly module postdeployment wasm module allocates memory in linear memory space without deallocation repeated calls grow wasm memory exhausting browser tab limit
+11,concurrent map modification exception search svc  useast background thread iterates hashmap while main thread inserts entries causing concurrentmodificationexception
+7,internal service calling external via internet order svc  useast microservice calls internal api using public dns name routing traffic out to internet and back adds ms latency and egress cost
+11,deadlock in orm lazy loading orm lazyloads related entity inside transaction that holds lock on parent child query waits for same lock causing deadlock
+10,sql injection in order search search svc  useast order search endpoint concatenates user input into sql where clause enabling data exfiltration via union attack
+11,missing error message localization order svc  useast error messages hardcoded in english nonenglish users see raw english error strings ignoring acceptlanguage header
+4,message queue consumer not idempotent on new infrastructure consumer processes message then commits offset crash between process and commit causes redelivery duplicate orders created
+9,unoptimized image served to mobile under high load fullresolution mb hero images served to mobile clients no webp conversion or responsive images page weight excessive
+3,kernel oom killer terminates database process  recurring memory overcommit allows allocations beyond physical ram kernel oom killer selects database process data loss on termination
+3,swap exhaustion causes system thrashing jvm heap set larger than physical ram system uses swap heavily context switches cause x slowdown in application
+3,cron job missing user environment variables under high load cron runs jobs with minimal environment app expects path and home set by profile jobs fail silently with command not found
+8,wireless signal reflection wireless signal reflection
+9,database cursor not closed after streaming search svc  useast serverside db cursor opened for streaming large result set not closed on client disconnect cursors accumulate locking table
+8,aging copper lines aging copper lines
+3,kernel oom killer terminates database process during peak hours memory overcommit allows allocations beyond physical ram kernel oom killer selects database process data loss on termination
+11,deadlock in orm lazy loading during peak hours orm lazyloads related entity inside transaction that holds lock on parent child query waits for same lock causing deadlock
+3,nfs mount hangs application threads  recurring nfs mount point becomes unresponsive application threads hang waiting for io thread pool exhausted causing full service outage
+0,smtp port blocked by firewall rule change user svc  useast firewall rule change blocks outbound port  email service silently fails as error not propagated to api callers
+0,logging too verbose filling disk payment svc  useast root logger set to trace level for debugging gb of logs per hour fills gb disk partition in  hours
+4,batch job fails silently on empty input after migration etl job returns exit code  on empty input file downstream assumes data loaded reporting uses stale data for  hours
+4,message queue consumer not idempotent search svc  useast atleastonce delivery redelivers message after consumer crashes midprocessing nonidempotent handler creates duplicate shipment
+9,report query scanning all partitions monthly report query on partitioned table missing partition key in where clause all  monthly partitions scanned
+5,kotlin coroutine context leak coroutinescope launched with globalscope retains reference to request context after request completes causing memory leak
+0,incorrect locale causes numeric parse failure under high load system locale set to dede application parses  as  in us locale but  in german locale data corruption
+1,incorrect timezone in timestamp column user svc  useast timestamp without time zone column stores client local time queries across timezones return inconsistent results
+5,redis key without ttl fills memory cache keys written without expiry redis memory grows to gb over  months eviction policy kicks in causing cache churn
+1,backup restore takes longer than rto postdeployment full database backup tb restore time  hours exceeds hour rto no incremental backup strategy in place
+3,unpatched kernel vulnerability user svc  useast linux kernel  with unpatched dirty pipe cve vulnerability running in production environment for  months
+8,unknown container id the resourcemanager received a completion event for a container id it does not track
+7,proxy protocol not forwarded to app load balancer uses proxy protocol but app not configured to parse it app sees lb ip instead of client ip geoblocking broken
+5,bitmap cache not bounded in mobile app image cache stores all decoded bitmaps without size limit app oomkilled by android after loading  images
+11,incorrect base padding during peak hours base encoder omits padding  decoder on receiving end fails for payloads whose length is not a multiple of 
+11,hardcoded timeout too short for large payload after migration http client timeout hardcoded at s large file exports consistently time out even though server completes in s
+2,missing resource limits causes node oom after upgrade pod deployed without memory limits memory leak causes pod to consume all node memory node oom killer evicts other pods
+3,syslog buffer overflow dropping logs payment svc  useast high log volume exceeds rsyslog queue buffer of  messages per second causing  of logs to be silently dropped
+1,missing partial index for soft deletes during peak hours table uses soft deletes with isdeleted flag no partial index on where isdeletedfalse all queries scan deleted rows
+11,incorrect retry logic on idempotent calls order svc  useast retry logic resends nonidempotent post charge on network timeout instead of checking payment status first
+7,rate limiter blocks legitimate burst traffic under high load perip rate limiter set to  reqmin mobile app batchsyncs on wake causing burst users ratelimited during sync
+1,unexpected null from coalesce in view payment svc  useast view uses coalesce to default null price to  but underlying column changed to not null view returns wrong data type
+2,terraform drift causes plan failures payment svc  useast manual change made to security group in aws console causes terraform state drift next plan fails with conflict error
+4,social login missing email claim google oauth returns email only when email scope granted integration assumes email always present causing npe on accounts without email
+3,systemd service restart storm payment svc  useast service restart loop triggers  restarts in  minutes systemd startlimitburst exceeded causing service to be permanently stopped
+11,session fixation vulnerability user svc  useast session id not regenerated after successful login allowing attacker to fix session before authentication
+11,type coercion bug in price calculation javascript loose equality coerces string price  to number in addition but not multiplication cart total wrong for string inputs
+11,cors failure after domain migration auth svc  useast old domain removed from cors whitelist during migration but mobile app still uses old domain for  days
+11,npe in address validation service order svc  useast null country code field not handled in address validator when international orders omit optional country field
+9,excessive object allocation in hot path payment svc  useast request parser allocates  new objects per request in tight loop gc pressure from shortlived objects causes ms gc pauses every s
+5,string interning table overflow in production dynamic strings from user input interned in jvm permgenmetaspace interning table grows unboundedly causing oom
+3,cloud account billing limit causing service shutdown user svc  useast aws account hits k billing alert limit automatic account suspension shuts down all production services without warning
+11,cors failure after domain migration user svc  useast old domain removed from cors whitelist during migration but mobile app still uses old domain for  days
+2,readiness probe missing causes premature traffic postdeployment service deployed without readiness probe kubernetes sends traffic immediately on container start before app fully initializes
+8,missing disaster recovery test for critical system postdeployment dr process never tested for payments database actual dr invocation reveals backup restoration procedure broken hour recovery
+10,outdated tls cipher suites enabled payment svc  useast server still supports rc and des cipher suites deprecated since  fails modern security scans
+4,api pagination skipping records integration uses pagenumber pagination on provider api provider inserts new records between pages causing records on boundary to be skipped
+9,gc pause causes latency spikes in production jvm full gc triggered every  minutes second stoptheworld pause causes p latency spike to ms
+11,infinite retry loop in email sender user svc  useast smtp server returning transient  error is treated as permanent failure triggering unlimited retries
+10,hardcoded credentials in mobile app  recurring api key and internal endpoint url hardcoded in android apk extracted via decompilation and used to access internal api
+1,implicit type conversion breaks index  recurring column is integer but query filters with string  implicit cast prevents index use causing full table scan
+11,missing input length validation after migration username field accepts up to  chars extremely long usernames cause index rebuild to time out on every login
+1,crossdatabase query via linked server times out  recurring linked server query pulls m rows across network for local filtering instead of pushing predicate to remote  minute timeout
+5,offheap direct buffer leak user svc  useast netty directbytebuffer allocations not released by connection handlers offheap memory grows gb per hour
+10,timing attack on password comparison on new infrastructure password comparison uses string equality instead of constanttime comparison timing sidechannel allows password enumeration
+5,python list comprehension materializes full dataset list comprehension loads entire gb dataset into memory for singlepass processing oom in gb ram machine
+6,incorrect cable category for gbe cate cable used for gbaset link exceeding m distance limit for cate excessive bit errors and retransmissions
+4,api rate limit not respected by client on new infrastructure sdk ignores  response and retries immediately all retries also ratelimited operation never succeeds and loops indefinitely
+3,disk inode exhaustion prevents file creation after migration log rotation creates millions of tiny files inode table exhausted while disk has free space no new files can be created
+6,failed cooling fan causes switch to throttle after migration switch cooling fan failure causes cpu temperature to exceed threshold asic throttled to  to prevent damage throughput halved
+2,environment variable not set in production stripesecretkey env var missing in prod container spec payment processing fails with authentication error on all requests
+1,read replica lag causes stale reads after migration app reads user balance from replica with s lag payment check reads prepayment balance allowing overdraft
+5,circular reference prevents gc under high load python objects hold circular references reference counting gc cannot collect cycles memory grows for longrunning process
+4,eventual consistency window causes incorrect reads in production write to primary returns success immediate read from replica returns old value ui shows stale state confusing users
+2,deployment timeout too short for slow start postdeployment progressdeadlineseconds set to s java service takes s to start deployment marked as failed and rolled back unnecessarily
+8,loose connector on sfp module loose connector on sfp module
+3,datacenter cooling failure throttling servers crac unit failure in datacenter raises temperature to c causing servers to thermal throttle to  performance
+11,memory leak in http client pool payment svc  useast http response bodies not closed after reading causing connection objects to accumulate in oldgen heap
+5,goroutine leak in http handler  recurring goroutine spawned per request never exits on client disconnect goroutines accumulate memory and scheduler overhead grows
+8,software bug software bug
+10,container running as root all production containers run as root user container escape vulnerability would give attacker full host access
+1,schema migration locks production table under high load alter table add column with default locks entire table  minute migration blocks all writes causing incident
+3,mount point permission change breaks service under high load chmod run on parent directory changes nfs mount point permissions service user cannot access mounted data
+1,missing not null constraint allowing nulls payment svc  useast amount column in payments table missing not null constraint application bug inserts null causing division by zero in reports
+11,remote code execution via deserialization order svc  useast java objectinputstream deserializes untrusted data from message queue enabling gadget chain rce exploit
+4,webhook signature not verified under high load incoming webhook payload processed without verifying hmac signature attacker sends forged webhook to trigger actions
+11,feature flag check inverted after upgrade boolean flag check uses  operator incorrectly new feature shown to all users when flag is off instead of on
+1,json column full scan on nested field in production query filters on nested json field without functional index full table scan on m row table for every request
+4,shipping provider tracking webhook flood shipping provider retries webhook  times on  response overwhelms order service with tracking updates causing downtime
+2,init container fails silently  recurring init container runs db migration and exits  even on failure main container starts against unmigrated schema
+2,postdeploy smoke test not run order svc  useast smoke test step disabled in pipeline to speed up deploy undetected bug in payment flow causes k in failed transactions
+1,deadlock between two transactions during peak hours transaction a locks user then order transaction b locks order then user deadlock every  minutes under load
+5,memorymapped file grows without limit under high load appendonly memorymapped file grows with writes but never remapped virtual address space exhausted on bit process
+3,runaway process consumes all cpu postdeployment infinite loop in data processing script pins all cpu cores other services starved monitoring alert triggers after  minutes
+10,unencrypted pii in s bucket customer pii csv exports stored in s bucket without encryption at rest bucket policy allows public read on some prefixes
+1,missing partial index for soft deletes table uses soft deletes with isdeleted flag no partial index on where isdeletedfalse all queries scan deleted rows
+11,incorrect decimal precision in tax calc under high load tax calculation uses float arithmetic rounding errors accumulate to  discrepancy on large orders causing audit failures
+1,cascading delete wiping customer orders on delete cascade on customerorders foreign key causes all orders deleted when test account cleanup runs
+2,image tag latest used in production search svc  useast deployment manifest uses imagelatest routine image rebuild with breaking change autodeploys to production on pod restart
+4,circular dependency between services causes deadlock service a calls b while holding lock service b calls a to complete both services wait indefinitely timeout after s
+11,missing null check after api response under high load api response parsed assuming data field always present null response on empty result causes npe in downstream handler
+2,horizontal pod autoscaler targets wrong metric  recurring hpa configured to scale on cpu but service is iobound pods scale up on cpu metric while actual io bottleneck remains
+11,npe in address validation service search svc  useast null country code field not handled in address validator when international orders omit optional country field
+0,health check endpoint returns  when unhealthy after upgrade health check always returns  regardless of internal state load balancer keeps sending traffic to failing instances
+11,offbyone error in buffer read under high load loop reads one byte past buffer end in binary protocol parser causing heap corruption under specific packet sizes
+10,unvalidated redirect to external site during peak hours redirect url taken from user parameter without validation phishing attack redirects users to malicious site after login
+5,retained reference in static collection leaks memory under high load static hashmap holds references to session objects sessions never removed on expiry heap grows until oom after  hours
+7,misconfigured cors blocks frontend requests in production cors policy allows specific origin frontend domain changed after migration all api calls blocked with cors error
+2,incorrect replica count after scaling event after upgrade hpa max replicas set to  traffic spike requires  replicas service degrades because autoscaler cannot exceed limit
+11,floating point comparison in loop terminator during peak hours loop uses  to compare float accumulator to  floating point drift causes infinite loop for certain step sizes
+9,compression disabled on large responses on new infrastructure nginx gzip disabled for applicationjson responses kb api responses transferred uncompressed x bandwidth waste
+1,replication slot bloat crashing primary auth svc  useast inactive replication slot accumulates wal files filling disk to  and crashing postgresql primary
+1,unlogged table data loss after crash search svc  useast session table created as unlogged for performance server crash causes complete session data loss logging out all users
+10,graphql introspection enabled in production graphql introspection endpoint enabled in production exposing complete api schema to attackers for reconnaissance
+2,docker layer cache invalidated on every build auth svc  useast copy   placed before run npm install in dockerfile any code change invalidates npm install cache layer
+11,deadlock in order and shipment tables search svc  useast order service locks orders then shipments shipment service locks shipments then orders creating circular wait
+11,file upload mime type bypass notification svc  useast mime type validated only from contenttype header which attacker controls executable disguised as image uploaded
+1,incorrect sharding key causes hot shard after migration sharding by userid prefix  of active users have ids starting with  one shard receives  of traffic
+0,default credentials not changed on new infrastructure monitoring system deployed with default adminadmin credentials accessible from internal network security scan flags finding
+7,certificate pinning breaks after rotation postdeployment mobile app pins tls certificate cert rotated on schedule all pinned app versions immediately fail with ssl error
+8,insufficient rollback plan for database migration during peak hours database migration has no rollback procedure migration fails halfway forwardonly migration cannot be reverted emergency restore required
+5,python memory leak in django worker order svc  useast celery worker processes accumulate memory due to circular references in signal handlers each task adds kb to worker heap
+10,sensitive data in browser local storage auth token and user pii stored in localstorage xss vulnerability on any page can exfiltrate all stored sensitive data
+0,object storage lifecycle policy deleting live data s lifecycle rule misconfigured to delete all objects older than  day production assets deleted within h of creation
+3,datacenter cooling failure throttling servers search svc  useast crac unit failure in datacenter raises temperature to c causing servers to thermal throttle to  performance
+5,memory leak in webassembly module  recurring wasm module allocates memory in linear memory space without deallocation repeated calls grow wasm memory exhausting browser tab limit
+2,canary deployment at  instead of  postdeployment canary weight misconfigured as  all traffic routed to canary with memory leak before validation completes
+2,deployment timeout too short for slow start after upgrade progressdeadlineseconds set to s java service takes s to start deployment marked as failed and rolled back unnecessarily
+2,missing antiaffinity rules collocates all replicas on new infrastructure all  replicas scheduled to same node due to missing pod antiaffinity single node failure takes down entire service
+5,rss memory spike on large json parse single json document of mb parsed inmemory creates x dom representation consuming gb of memory per parse
+9,connection timeout storm under load search svc  useast high load causes db query timeout timeout handler creates new connection to retry new connections increase load causing cascade
+11,race condition in thread pool thread pool workers access shared queue without synchronization concurrent reads cause duplicate task processing
+11,incorrect enum ordinal used for persistence enum stored by ordinal inserting new enum value in middle changes ordinals of existing values causing data misinterpretation
+5,weak reference not used in cache implementation after upgrade cache stores strong references to large objects gc cannot reclaim under memory pressure oom before eviction triggered
+8,vendor eol product still in production use core routing component reached endoflife  years ago vendor no longer provides security patches compliance violation
+5,connection object not returned to pool early return in exception path skips connectionclose pool exhausts over  minutes causing all db operations to fail
+4,tls certificate pinning failure on certificate renewal partner api renewed ssl certificate with different intermediate ca hardcoded certificate hash in integration client breaks
+1,incorrect timezone in timestamp column search svc  useast timestamp without time zone column stores client local time queries across timezones return inconsistent results
+10,stored xss via svg upload under high load svg files treated as images and served with imagesvgxml content type svg with embedded script executes in victim browser
+9,serialized object deserialization bottleneck java serialization used for session storage deserialization of complex objects takes ms per request under load
+4,soap envelope namespace mismatch partner wsdl updated with new namespace prefix client soap envelope uses old prefix partner rejects all requests
+10,stored xss via svg upload during peak hours svg files treated as images and served with imagesvgxml content type svg with embedded script executes in victim browser
+11,incorrect locale in number formatting on new infrastructure number formatter uses system locale servers in eu format  as one thousand where us servers treat it as one data corruption on import
+2,missing antiaffinity rules collocates all replicas in production all  replicas scheduled to same node due to missing pod antiaffinity single node failure takes down entire service
+11,incorrect http method in rest client sdk uses get instead of post for create endpoint large payloads silently truncated by url length limit causing data loss
+1,incorrect cascade delete removes wrong data after upgrade on delete cascade misconfigured deleting test account cascades to shared reference data deleting records for all users
+5,unreleased preparedstatement leaks memory under high load preparedstatement created perrequest without closing jdbc driver caches statement metadata memory grows mbhour
+9,unindexed sort on large result set order by createdat desc on unindexed column requires full m row sort in memory taking s for paginated list api
+2,horizontal pod autoscaler targets wrong metric  recurring hpa configured to scale on cpu but service is iobound pods scale up on cpu metric while actual io bottleneck remains
+1,incorrect isolation level causing dirty reads order svc  useast transaction isolation set to read uncommitted for reporting queries reports show partiallywritten uncommitted data
+2,config secret decryption fails after key rotation search svc  useast kms key rotated without reencrypting existing secrets pods fail to start as they cannot decrypt environment variables
+1,missing unique constraint allowing duplicate emails order svc  useast application checks uniqueness in code but no db unique constraint concurrent registrations insert duplicate email rows
+0,max upload concurrency set too high payment svc  useast max concurrent uploads set to  s throttling kicks in at  concurrent requests causing  errors for uploads
+11,floating point comparison in loop terminator after upgrade loop uses  to compare float accumulator to  floating point drift causes infinite loop for certain step sizes
+2,kubernetes oomkilled during startup jvm allocates gb heap at startup exceeding gb container memory limit causing immediate oomkill before readiness
+9,elasticsearch query timeout on deep aggregations payment svc  useast nested aggregation with  levels on m document index exceeds s query timeout during business hours
+2,artifact promotion skips staging auth svc  useast promotion script bug skips staging environment when version contains rc suffix promoting untested rc directly to production
+1,statistics not updated after bulk load  recurring bulk load of m rows without analyze query planner uses stale statistics and picks wrong index queries x slower
+11,incorrect serialization of nested objects under high load custom serializer doesnt recurse into nested objects nested data serialized as object reference instead of value
+10,dependency confusion attack vector auth svc  useast private package name not reserved on public npm registry attacker publishes malicious package with same name at higher version
+2,persistentvolumeclaim not bound before deploy statefulset deployed before pvc provisioned pod stuck in pending state pvc never autoprovisions due to wrong storageclass
+9,serialized object deserialization bottleneck postdeployment java serialization used for session storage deserialization of complex objects takes ms per request under load
+4,api rate limit not respected by client under high load sdk ignores  response and retries immediately all retries also ratelimited operation never succeeds and loops indefinitely
+1,missing index on foreign key column under high load delete on parent table triggers full table scan on child table due to missing fk index delete of  rows takes  seconds
+7,proxy protocol not forwarded to app during peak hours load balancer uses proxy protocol but app not configured to parse it app sees lb ip instead of client ip geoblocking broken
+11,timezone handling bug in scheduler scheduler stores times in local timezone daylight saving transition causes jobs to fire twice or be skipped
+4,api rate limit not respected by client during peak hours sdk ignores  response and retries immediately all retries also ratelimited operation never succeeds and loops indefinitely
+6,switch backplane oversubscribed during peak hours port gbe switch with gbe uplink  ports transmitting simultaneously oversubscribes uplink x buffer overflow and drops
+11,silent data truncation in orm during peak hours orm truncates string fields exceeding column length without warning long user bios silently cut off on save
+2,image tag latest used in production notification svc  useast deployment manifest uses imagelatest routine image rebuild with breaking change autodeploys to production on pod restart
+1,write amplification from tiny transactions search svc  useast application sends  singlerow insert transactions per second causing wal write amplification and io saturation
+0,encryption key set to all zeros payment svc  useast placeholder encryption key  left in production config after migration from old key management system
+7,icmp blocked causing path mtu discovery failure auth svc  useast firewall blocks all icmp type  code  fragmentation needed messages breaking pmtud for connections to this subnet
+0,missing idle connection eviction connection pool allows connections to idle indefinitely firewall drops idle connections after  minutes pool serves stale connections
+11,uncaught exception in batch processor single malformed record in batch throws uncaught exception aborting entire batch of  records silently
+10,exposed admin panel without authentication on new infrastructure actuator management endpoints exposed on public port without authentication actuatorenv returns all environment variables
+2,horizontal pod autoscaler targets wrong metric on new infrastructure hpa configured to scale on cpu but service is iobound pods scale up on cpu metric while actual io bottleneck remains
+4,s event notification duplicate on multipart upload after upgrade s multipart upload triggers one event per part plus final event downstream processor deduplication misses edge case
+2,persistentvolumeclaim not bound before deploy statefulset deployed before pvc provisioned pod stuck in pending state pvc never autoprovisions due to wrong storageclass
+11,csv injection via user input in production user input written directly to csv export without sanitization formula injection via leading  executes in spreadsheet
+1,database password stored in plaintext config postdeployment database credentials stored in plaintext applicationproperties committed to git repo credentials exposed publicly
+9,excessive object allocation in hot path user svc  useast request parser allocates  new objects per request in tight loop gc pressure from shortlived objects causes ms gc pauses every s
+11,utc offset bug in scheduled reports search svc  useast report scheduler uses server local time pst to trigger jobs causing hour offset for utcbased users
+11,stack overflow in xml parser user svc  useast deeply nested xml with  levels triggers recursive parser without depth limit
+9,frontend render blocking javascript auth svc  useast kb analytics script loaded synchronously in html head blocking browser parsing for s on mobile networks
+10,container running as root order svc  useast all production containers run as root user container escape vulnerability would give attacker full host access
+9,compression disabled on large responses nginx gzip disabled for applicationjson responses kb api responses transferred uncompressed x bandwidth waste
+2,sidecar proxy not updated with app payment svc  useast istio sidecar proxy version pinned to old version in annotation new app version requires proxy feature from newer version
+1,database connection string exposed in logs  recurring orm debug mode logs full connection string including password logs accessible to all engineers via log aggregator
+10,session not invalidated after password change on new infrastructure password change does not invalidate existing sessions attacker with stolen session maintains access after victim changes password
+10,container escape via privileged pod after migration pod runs with privileged true and hostpid true container process can access and manipulate host kernel directly
+1,checkpoint storm causes io spike under high load postgresql checkpointcompletiontarget too low all dirty pages flushed at once causing io spike every  minutes
+0,proxy buffer size too small for large headers nginx proxybuffersize k upstream sends k response headers with many cookies nginx returns  bad gateway
+11,integer overflow in order quantity order quantity stored as int values above  wrap to negative causing inventory to be credited instead of debited
+2,liveness probe too aggressive kills healthy pods postdeployment liveness probe timeout s jvm warmup takes s kubernetes kills pods during startup before they become healthy
+11,incorrect serialization of nested objects after upgrade custom serializer doesnt recurse into nested objects nested data serialized as object reference instead of value
+9,gc pause causes latency spikes jvm full gc triggered every  minutes second stoptheworld pause causes p latency spike to ms
+11,path traversal in file download  recurring file download endpoint uses usersupplied filename without sanitization etcpasswd retrieves server files
+10,privilege escalation via suid binary in production custom suid binary with path traversal vulnerability local user escalates to root by manipulating path variable
+11,missing transaction rollback on partial failure payment svc  useast order creation writes to  tables failure on rd table not rolled back leaving order in inconsistent halfwritten state
+0,worker thread count set to one search svc  useast thread pool size accidentally set to  during profiling session left in production config serializes all requests
+10,missing security headers allow clickjacking postdeployment xframeoptions and contentsecuritypolicy headers absent attacker embeds site in iframe for clickjacking attack
+3,syslog buffer overflow dropping logs auth svc  useast high log volume exceeds rsyslog queue buffer of  messages per second causing  of logs to be silently dropped
+0,smtp port blocked by firewall rule change search svc  useast firewall rule change blocks outbound port  email service silently fails as error not propagated to api callers
+4,push notification token expiry not handled user svc  useast fcm tokens expire after  days integration never refreshes tokens causing  of push notifications to fail silently
+11,uncaught exception in batch processor payment svc  useast single malformed record in batch throws uncaught exception aborting entire batch of  records silently
+10,stored xss in product reviews html tags in review text stored unescaped in db and rendered without sanitization in browser affecting all viewers
+2,fluentd daemonset not updated after node pool change after migration new node pool added with different os fluentd daemonset uses old log path logs from new nodes never collected
+7,network namespace leak in container runtime containers stopped but network namespaces not cleaned up kernel namespace table fills after  container restarts
+2,rollback triggered on healthy deploy order svc  useast automated rollback triggered by transient spike in error rate from unrelated upstream service during deploy window
+7,proxy protocol not forwarded to app on new infrastructure load balancer uses proxy protocol but app not configured to parse it app sees lb ip instead of client ip geoblocking broken
+0,cache size set below minimum working set user svc  useast redis maxmemory set to mb working set of hot keys is mb constant eviction causes  cache miss rate
+7,proxy protocol header missing order svc  useast haproxy upgraded without proxy protocol v enabled backend service loses client ip information for geoblocking and rate limiting
+5,thread local variable accumulates state on new infrastructure threadlocal variable stores perrequest context but never cleared thread pool reuses threads carrying stale state
+1,crossdatabase query via linked server times out  recurring linked server query pulls m rows across network for local filtering instead of pushing predicate to remote  minute timeout
+10,stored xss in product reviews auth svc  useast html tags in review text stored unescaped in db and rendered without sanitization in browser affecting all viewers
+11,broken pagination cursor after delete search svc  useast cursorbased pagination uses row id as cursor deleted rows shift offsets causing records to be skipped
+2,config change deployed without service restart after upgrade environment variable updated in configmap but service reads config only at startup old value used until manual pod restart
+11,xss in search results page search svc  useast search query string reflected in results page title without html encoding enabling stored xss via url sharing
+11,missing null check after api response api response parsed assuming data field always present null response on empty result causes npe in downstream handler
+2,feature flag not disabled before deploy payment svc  useast new feature rolled out with flagtrue by default deploy to production exposes incomplete feature to all users immediately
+1,temp table not cleaned up in loop stored procedure creates temp table in loop without dropping after  iterations temp space exhausted and procedure fails
+9,missing http caching headers for static assets during peak hours static js and css served without cachecontrol headers browser refetches all assets on every page load adding s
+11,wrong http method accepted put endpoint accidentally accepts get requests due to missing method restriction in routing config
+9,gc pause causes latency spikes postdeployment jvm full gc triggered every  minutes second stoptheworld pause causes p latency spike to ms
+11,deadlock in order and shipment tables payment svc  useast order service locks orders then shipments shipment service locks shipments then orders creating circular wait
+5,large object heap fragmentation order svc  useast frequent allocation and deallocation of mb objects causes severe heap fragmentation effective available heap drops to 
+10,sensitive data in browser local storage under high load auth token and user pii stored in localstorage xss vulnerability on any page can exfiltrate all stored sensitive data
+11,serialization error on enum fields new enum value pendingreview added serverside but old client deserializer throws on unknown enum values
+11,incorrect locale in number formatting number formatter uses system locale servers in eu format  as one thousand where us servers treat it as one data corruption on import
+11,missing validation allows negative quantity after migration cart quantity field accepts negative numbers negative quantity reduces order total and credits attackers account
+2,docker build cache stale dependency npm install layer cached with outdated packagelockjson production image runs old vulnerable package version
+9,chatty rest api requires many round trips mobile app fetches user then profile then settings as separate requests  sequential calls with ms rtt each adds ms
+11,unhandled exception in background worker during peak hours background job catches only ioexception unexpected nullreferenceexception propagates and kills worker thread silently
+1,read replica lag causes stale reads app reads user balance from replica with s lag payment check reads prepayment balance allowing overdraft
+1,sequence exhaustion causes insert failure autoincrement sequence reaches max value int new inserts fail with duplicate key error sequence not monitored
+0,wrong replica count after manual edit in production deployment yaml manually edited to  replica for debugging change committed production runs single replica for  days
+7,bgp route leak causing traffic blackhole search svc  useast misconfigured bgp route advertisement leaks internal subnet routes causing external traffic to be routed internally and dropped
+3,unpatched kernel vulnerability search svc  useast linux kernel  with unpatched dirty pipe cve vulnerability running in production environment for  months
+11,feature flag check inverted boolean flag check uses  operator incorrectly new feature shown to all users when flag is off instead of on
+0,max connections too low for traffic volume postdeployment web server maxconnections set to  peak traffic hits  concurrent users excess connections rejected with 
+8,interference from nearby wireless devices interference from nearby wireless devices
+8,vendor eol product still in production use on new infrastructure core routing component reached endoflife  years ago vendor no longer provides security patches compliance violation
+7,icmp blocked causing path mtu discovery failure order svc  useast firewall blocks all icmp type  code  fragmentation needed messages breaking pmtud for connections to this subnet
+8,datacenter power loss datacenter power loss
+3,unpatched kernel vulnerability linux kernel  with unpatched dirty pipe cve vulnerability running in production environment for  months
+11,incorrect locale in number formatting number formatter uses system locale servers in eu format  as one thousand where us servers treat it as one data corruption on import
+1,implicit type casting killing index query filters int column with varchar parameter causing implicit cast that prevents index usage on m row table
+11,stack overflow in recursive parser on new infrastructure recursive json parser has no depth limit deeply nested payload causes stack overflow and service crash
+9,database connection acquired too early after upgrade connection acquired at request start even for cached responses connection held during entire cache lookup pool exhausted
+2,fluentd daemonset not updated after node pool change after migration new node pool added with different os fluentd daemonset uses old log path logs from new nodes never collected
+9,unindexed sort column causes full scan in production order by on unindexed timestamp column requires full table sort query plan shows filesort on m row table
+1,replication slot bloat crashing primary user svc  useast inactive replication slot accumulates wal files filling disk to  and crashing postgresql primary
+3,expired root certificate breaks tls chain postdeployment root ca certificate expired intermediate certs signed by it become untrusted all ssl connections fail until cert replaced
+7,ocsp stapling failure slows tls handshake after migration ocsp stapling misconfigured browser must contact ocsp responder on every tls handshake adding ms to connection time
+1,database password stored in plaintext config during peak hours database credentials stored in plaintext applicationproperties committed to git repo credentials exposed publicly
+11,regex dos via backtracking after migration email validation regex uses catastrophic backtracking input of  chars with trailing invalid char causes  cpu for s
+11,incorrect http status code on validation error search svc  useast validation failures return http  instead of  causing clients to retry instead of fixing request
+4,batch job fails silently on empty input  recurring etl job returns exit code  on empty input file downstream assumes data loaded reporting uses stale data for  hours
+2,missing resource limits causes node oom postdeployment pod deployed without memory limits memory leak causes pod to consume all node memory node oom killer evicts other pods
+4,message queue consumer not idempotent auth svc  useast atleastonce delivery redelivers message after consumer crashes midprocessing nonidempotent handler creates duplicate shipment
+1,data skew in sharded database auth svc  useast shard key chosen as user country  of users in us causes one shard to handle  of load while others idle
+1,connection pool deadlock on high traffic user svc  useast all  pool connections waiting for each others locks during flash sale causing complete db unavailability
+10,logshell vulnerability in logging framework  recurring logj  used in production attacker sends jndildapattackercomx in useragent header triggering rce
+7,rate limiter blocks legitimate burst traffic during peak hours perip rate limiter set to  reqmin mobile app batchsyncs on wake causing burst users ratelimited during sync
+0,incorrect locale causes numeric parse failure on new infrastructure system locale set to dede application parses  as  in us locale but  in german locale data corruption
+0,firewall allowlist too permissive under high load egress firewall allows  data exfiltration possible to any external ip violates compliance requirements
+2,terraform state lock not released in production previous terraform run failed and did not release state lock all subsequent deploys fail with state locked error
+1,view not updated after table schema change column renamed in base table view still references old column name view queries fail silently returning nulls
+8,scheduled maintenance scheduled maintenance
+9,slow regex compiled on every invocation after upgrade regex pattern compiled inside request handler on each call instead of at startup ms overhead per request
+1,stale query plan after data distribution change auth svc  useast query planner uses index from before bulk data load new data distribution makes sequential scan x faster but plan not refreshed
+2,docker build cache stale dependency npm install layer cached with outdated packagelockjson production image runs old vulnerable package version
+7,asymmetric routing breaks stateful firewall traffic ingresses via router a but egresses via router b stateful firewall drops return packets it never saw the request for
+4,webhook signature not verified during peak hours incoming webhook payload processed without verifying hmac signature attacker sends forged webhook to trigger actions
+2,container runs as root in production postdeployment docker image built without user directive container runs as root security scanner flags critical finding after deploy
+11,incorrect serialization of nested objects in production custom serializer doesnt recurse into nested objects nested data serialized as object reference instead of value
+1,missing transaction causes partial update multistep money transfer not wrapped in transaction failure after debit but before credit leaves account inconsistent
+10,open redirect enabling phishing login redirect parameter accepts arbitrary urls attacker crafts login link redirecting to phishing site after auth
+2,config secret decryption fails after key rotation order svc  useast kms key rotated without reencrypting existing secrets pods fail to start as they cannot decrypt environment variables
+7,arp table overflow on core switch after migration flat  network saturates switch arp table of  entries new arp requests dropped intermittent connectivity failures
+6,temporary performance drop in switch temporary performance drop in switch
+0,kubernetes resource requests not set  recurring pods deployed without resource requests scheduler cannot make informed placement decisions noisy neighbor issues
+2,canary deployment routing  traffic order svc  useast istio virtual service weight misconfigured as canary stable sending all traffic to unverified canary version
+5,redis key without ttl fills memory on new infrastructure cache keys written without expiry redis memory grows to gb over  months eviction policy kicks in causing cache churn
+9,compression disabled on large responses postdeployment nginx gzip disabled for applicationjson responses kb api responses transferred uncompressed x bandwidth waste
+11,nullpointerexception in user login session object not initialized before access in login handler when cookie is malformed
+2,production deployment missing db migration user svc  useast developer forgot to include migration file in pr app deployed expecting new column that does not exist in schema
+1,slow analytical query due to row store auth svc  useast wide analytical query reading  columns from roworiented table causes excessive io reading unwanted columns
+1,fulltext index out of sync postdeployment fulltext index not rebuilt after bulk update search returns deleted records and misses newly inserted ones
+10,sensitive data in browser local storage during peak hours auth token and user pii stored in localstorage xss vulnerability on any page can exfiltrate all stored sensitive data
+8,monitoring gap for new service  recurring new microservice deployed without configuring alerts memory leak goes undetected for  days until user complaints surface
+4,gdpr data deletion not propagated to integrations order svc  useast user deletion from main system not propagated to  thirdparty integrations pii persists in external systems violating gdpr
+0,incorrect locale causes numeric parse failure during peak hours system locale set to dede application parses  as  in us locale but  in german locale data corruption
+2,cronjob schedule in wrong timezone in production kubernetes cronjob schedule uses cluster utc timezone operator expects local est schedule job fires  hours early
+1,crossdatabase query via linked server times out  recurring linked server query pulls m rows across network for local filtering instead of pushing predicate to remote  minute timeout
+1,incorrect sharding key causes hot shard under high load sharding by userid prefix  of active users have ids starting with  one shard receives  of traffic
+11,utc offset bug in scheduled reports auth svc  useast report scheduler uses server local time pst to trigger jobs causing hour offset for utcbased users
+9,missing http caching headers for static assets postdeployment static js and css served without cachecontrol headers browser refetches all assets on every page load adding s
+0,log level set to debug in production on new infrastructure debug logging left enabled after incident diagnosis x log volume overwhelms log aggregator legitimate alerts missed
+7,load balancer sticky sessions misconfigured postdeployment session affinity cookie name changed in lb config without updating app users lose session on every request
+3,hardware clock drift after hypervisor migration vm migrated to new hypervisor hardware clock resets hour drift causes event ordering failures and token expiry
+2,horizontal pod autoscaler misconfigured search svc  useast hpa minreplicas set to  single pod handles all traffic during lowtraffic periods causing cold start latency spikes
+6,nic firmware bug causes random resets in production intel x nic firmware bug triggers driver reset under specific traffic patterns link drops for  seconds periodically
+2,docker layer cache invalidated on every build payment svc  useast copy   placed before run npm install in dockerfile any code change invalidates npm install cache layer
+4,missing correlation id breaks distributed tracing postdeployment service does not propagate xcorrelationid header distributed traces break at this service debugging crossservice issues impossible
+7,ingress controller not reloading after cert update  recurring tls certificate renewed but nginx ingress not reloaded old expired cert served until manual reload ssl warnings for  hours
+10,weak password policy allows common passwords after migration password policy only enforces length no check against common password list password accepted for all accounts
+11,incorrect sort comparator returns nan after upgrade sort comparator subtracts dates directly undefined dates return nan causing inconsistent array ordering across browsers
+1,slow fulltext search without index payment svc  useast like keyword query on product description column scans all m rows taking s per search request
+11,buffer overflow in image processor auth svc  useast image processor allocates fixed mb buffer for thumbnail generation large png causes buffer overflow crash
+11,exception in static initializer crashes jvm during peak hours static initializer block throws unchecked exception class loading fails silently all requests return  with no clear log
+10,api key logged in access logs postdeployment api key passed as query parameter full url including key logged by access log keys exposed in log aggregation platform
+1,pointintime recovery gap user svc  useast wal archiving to s fails silently for  hours due to expired iam credentials creating unrecoverable gap
+2,postdeploy smoke test not run payment svc  useast smoke test step disabled in pipeline to speed up deploy undetected bug in payment flow causes k in failed transactions
+8,knowledge silo leads to single point of failure after upgrade only one engineer understands legacy system engineer on vacation during incident hour delay finding someone to diagnose issue
+7,tcp syn flood exhausting connection table notification svc  useast tcp syn flood attack fills connection tracking table causing legitimate connections to be rejected with econnrefused
+4,push notification token expiry not handled auth svc  useast fcm tokens expire after  days integration never refreshes tokens causing  of push notifications to fail silently
+11,incorrect scope on variable declaration variable declared with var inside ifblock hoisted to function scope value leaked across iterations causing wrong calculations
+1,slow fulltext search without index search svc  useast like keyword query on product description column scans all m rows taking s per search request
+7,ospf flapping during switch firmware update search svc  useast switch firmware update causes second interface down causing ospf adjacency flap and routing reconvergence
+1,unbounded query returns full table postdeployment admin api endpoint missing limit clause single request returns all m rows causing oom on app server
+2,kubernetes oomkilled during startup auth svc  useast jvm allocates gb heap at startup exceeding gb container memory limit causing immediate oomkill before readiness
+7,tcp window scaling disabled by middlebox on new infrastructure corporate firewall strips tcp window scaling option throughput capped at kb per connection large file transfers slow
+11,serialization error on enum fields search svc  useast new enum value pendingreview added serverside but old client deserializer throws on unknown enum values
+7,internal service calling external via internet microservice calls internal api using public dns name routing traffic out to internet and back adds ms latency and egress cost
+1,checkpoint storm causes io spike postgresql checkpointcompletiontarget too low all dirty pages flushed at once causing io spike every  minutes
+2,incorrect replica count after scaling event after upgrade hpa max replicas set to  traffic spike requires  replicas service degrades because autoscaler cannot exceed limit
+8,knowledge silo leads to single point of failure after migration only one engineer understands legacy system engineer on vacation during incident hour delay finding someone to diagnose issue
+3,misconfigured selinux blocking service order svc  useast selinux enforcing mode blocks new service from writing to vardata causing cryptic permission denied errors on startup
+1,write amplification from tiny transactions order svc  useast application sends  singlerow insert transactions per second causing wal write amplification and io saturation
+10,graphql introspection enabled in production search svc  useast graphql introspection endpoint enabled in production exposing complete api schema to attackers for reconnaissance
+5,redis key without ttl fills memory under high load cache keys written without expiry redis memory grows to gb over  months eviction policy kicks in causing cache churn
+9,compression disabled on large responses after migration nginx gzip disabled for applicationjson responses kb api responses transferred uncompressed x bandwidth waste
+5,python memory leak in django worker celery worker processes accumulate memory due to circular references in signal handlers each task adds kb to worker heap
+3,inotify watch limit exceeded search svc  useast file watcher service hits default inotify limit of  watches failing to monitor new files in hotdeploy directory
+1,n query in report generation during peak hours report loads parent records then executes one query per child  parent records trigger  child queries causing s load time
+7,websocket timeout from proxy nginx proxyreadtimeout s websocket connections idle for s dropped by proxy realtime features disconnect silently
+9,chatty microservice calling neighbor x per request notification svc  useast product service makes  individual calls to pricing service per page render instead of batching adds ms latency
+11,regex dos via backtracking email validation regex uses catastrophic backtracking input of  chars with trailing invalid char causes  cpu for s
+2,helm chart uses wrong image tag helm chart defaults to image tag latest prod deploy pulls newer untested image than was used in staging
+7,bandwidth throttling affects all tenants shared bandwidth limiter bug applies singletenant throttle to all tenants on same host all tenants slowed during spike
+11,npe in address validation service payment svc  useast null country code field not handled in address validator when international orders omit optional country field
+7,syn cookies disabled during syn flood under high load syn cookie protection disabled on load balancer syn flood attack exhausts halfopen connection table new connections rejected
+9,watchdog thread prevents sleep  recurring background watchdog polls shared state in tight loop prevents cpu cstates increases idle cpu usage from  to 
+8,incorrect documentation causes misconfiguration after upgrade internal wiki documents wrong port for new authentication service engineers configure firewall with wrong port auth fails for  hours
+5,string interning table overflow postdeployment dynamic strings from user input interned in jvm permgenmetaspace interning table grows unboundedly causing oom
+1,schema migration locks production table alter table add column with default locks entire table  minute migration blocks all writes causing incident
+9,database connection acquired too early on new infrastructure connection acquired at request start even for cached responses connection held during entire cache lookup pool exhausted
+1,max connections exceeded on rds user svc  useast deployment of  new pods each opening  connections exceeds rds maxconnections of  at startup
+2,service account token expired middeploy auth svc  useast longrunning bluegreen deployment exceeds hour service account token ttl causing deploy to fail halfway through
+9,missing connection keepalive to upstream http client to upstream api opens new tcp connection per request tls handshake overhead adds ms to each call
+8,software bug in router firmware software bug in router firmware
+4,email provider bounce not processed notification svc  useast bounce webhook from sendgrid not processed due to missing route bounced emails retried indefinitely damaging sender reputation
+2,rolling update causes version mismatch on new infrastructure during rolling deploy old and new pods run simultaneously api v and v pods handle same request chain causing  errors
+3,misconfigured selinux blocking service auth svc  useast selinux enforcing mode blocks new service from writing to vardata causing cryptic permission denied errors on startup
+1,autovacuum not keeping up with updates highupdate table accumulates dead tuples faster than autovacuum runs table bloat causes x storage growth and query slowdown
+9,unoptimized image served to mobile fullresolution mb hero images served to mobile clients no webp conversion or responsive images page weight excessive
+2,liveness probe too aggressive kills healthy pods after upgrade liveness probe timeout s jvm warmup takes s kubernetes kills pods during startup before they become healthy
+11,missing lock on singleton initialization singleton lazyinitialization not threadsafe two threads simultaneously check null and create two instances causing state split
+11,npe in address validation service notification svc  useast null country code field not handled in address validator when international orders omit optional country field
+2,sidecar container version not updated with main postdeployment main app container updated but sidecar logging agent version left at old incompatible version logs stop flowing
+4,eventual consistency window causes incorrect reads after migration write to primary returns success immediate read from replica returns old value ui shows stale state confusing users
+2,sidecar container version not updated with main after upgrade main app container updated but sidecar logging agent version left at old incompatible version logs stop flowing
+2,horizontal pod autoscaler targets wrong metric  recurring hpa configured to scale on cpu but service is iobound pods scale up on cpu metric while actual io bottleneck remains
+1,incorrect cascade delete removes wrong data during peak hours on delete cascade misconfigured deleting test account cascades to shared reference data deleting records for all users
+0,proxy buffer size too small for large headers on new infrastructure nginx proxybuffersize k upstream sends k response headers with many cookies nginx returns  bad gateway
+7,grpc connection reuse causing header compression issues search svc  useast longlived grpc connections accumulate hpack header compression state state desync causes  of requests to fail
+0,proxy protocol mismatch corrupting client ips search svc  useast haproxy sends proxy protocol v headers nginx configured to parse proxy protocol v client ip parsed incorrectly
+1,implicit type casting killing index order svc  useast query filters int column with varchar parameter causing implicit cast that prevents index usage on m row table
+8,insufficient capacity planning for peak event after migration black friday traffic modeled on previous year x traffic increase not anticipated infrastructure underprovisioned service degraded for  hours
+11,offbyone error in buffer read during peak hours loop reads one byte past buffer end in binary protocol parser causing heap corruption under specific packet sizes
+4,oauth token not refreshed before expiry in production access token stored but expiry not tracked token expires midsession api calls fail with  until user reauthenticates
+2,terraform state lock not released on new infrastructure previous terraform run failed and did not release state lock all subsequent deploys fail with state locked error
+11,broken pagination cursor after delete auth svc  useast cursorbased pagination uses row id as cursor deleted rows shift offsets causing records to be skipped
+1,incorrect rollup misses last day on new infrastructure monthly rollup uses between with exclusive end date last day of month excluded from aggregation causing incorrect totals
+1,incorrect unique constraint allows duplicates  recurring unique constraint on email is casesensitive userexamplecom and userexamplecom both inserted causing duplicate account
+3,ulimit too low for file descriptors  recurring default ulimit of  file descriptors hit under load too many open files error causes request failures
+2,readiness probe missing causes premature traffic service deployed without readiness probe kubernetes sends traffic immediately on container start before app fully initializes
+10,kubernetes secrets stored in plain text in etcd user svc  useast etcd encryption at rest not enabled kubernetes secrets readable in plain text from etcd backup files
+1,missing index on foreign key column after migration delete on parent table triggers full table scan on child table due to missing fk index delete of  rows takes  seconds
+11,unhandled exception in background worker background job catches only ioexception unexpected nullreferenceexception propagates and kills worker thread silently
+11,path traversal in file download file download endpoint uses usersupplied filename without sanitization etcpasswd retrieves server files
+1,backup restoration to wrong environment user svc  useast production backup accidentally restored to staging during recovery drill overwriting staging with production pii data
+3,hugepages not configured for database after migration postgresql runs without hugepages on gb ram server tlb thrashing causes  performance regression vs expected
+11,regex dos via backtracking postdeployment email validation regex uses catastrophic backtracking input of  chars with trailing invalid char causes  cpu for s
+2,config change deployed without service restart during peak hours environment variable updated in configmap but service reads config only at startup old value used until manual pod restart
+9,unindexed sort on large result set search svc  useast order by createdat desc on unindexed column requires full m row sort in memory taking s for paginated list api
+1,temp table not cleaned up in loop after migration stored procedure creates temp table in loop without dropping after  iterations temp space exhausted and procedure fails
+4,currency conversion rounding discrepancy order svc  useast integration uses different rounding mode than payment provider  discrepancy causes reconciliation failures nightly
+9,jvm metaspace oom from class loader leak dynamic class loading in plugin system without unloading causes metaspace to grow mb per hour causing eventual oom
+3,disk inode exhaustion prevents file creation on new infrastructure log rotation creates millions of tiny files inode table exhausted while disk has free space no new files can be created
+7,ocsp stapling failure slows tls handshake in production ocsp stapling misconfigured browser must contact ocsp responder on every tls handshake adding ms to connection time
+2,feature flag not disabled before deploy auth svc  useast new feature rolled out with flagtrue by default deploy to production exposes incomplete feature to all users immediately
+7,grpc connection reuse causing header compression issues order svc  useast longlived grpc connections accumulate hpack header compression state state desync causes  of requests to fail
+3,systemd service restart storm auth svc  useast service restart loop triggers  restarts in  minutes systemd startlimitburst exceeded causing service to be permanently stopped
+5,ggc humongous allocation triggers full gc postdeployment single mb allocation exceeds g region size triggering humongous allocation path causes stoptheworld full gc
+3,cron job running duplicate instances notification svc  useast cron job has no lock mechanism slow execution causes next invocation to start while previous is still running
+7,mtu mismatch causing packet fragmentation search svc  useast vpn tunnel mtu of  bytes causes ip fragmentation for packets larger than  bytes degrading throughput by 
+11,missing error message localization user svc  useast error messages hardcoded in english nonenglish users see raw english error strings ignoring acceptlanguage header
+11,missing input length validation username field accepts up to  chars extremely long usernames cause index rebuild to time out on every login
+9,gc pause causes latency spikes  recurring jvm full gc triggered every  minutes second stoptheworld pause causes p latency spike to ms
+7,network namespace leak in container runtime after migration containers stopped but network namespaces not cleaned up kernel namespace table fills after  container restarts
+1,n query in report generation after upgrade report loads parent records then executes one query per child  parent records trigger  child queries causing s load time
+4,oauth scope mismatch causing  order svc  useast integration requests userwrite scope but only userread was granted during app approval silent failure returns empty response
+10,session not invalidated after password change under high load password change does not invalidate existing sessions attacker with stolen session maintains access after victim changes password
+6,hardware failure hardware failure
+8,temporary routing loop temporary routing loop
+11,path traversal in file download payment svc  useast usersupplied filename parameter not sanitized etcpasswd returns system file contents
+1,character set mismatch in join user svc  useast users table uses utf collation orders table uses latin join produces illegal mix of collations error in mysql
+1,incorrect unique constraint allows duplicates  recurring unique constraint on email is casesensitive userexamplecom and userexamplecom both inserted causing duplicate account
+9,elasticsearch query timeout on deep aggregations user svc  useast nested aggregation with  levels on m document index exceeds s query timeout during business hours
+7,vlan tagging misconfiguration drops traffic under high load switch port configured as access port instead of trunk vlantagged frames from hypervisor dropped silently
+3,mount point permission change breaks service chmod run on parent directory changes nfs mount point permissions service user cannot access mounted data
+1,incorrect timezone in db server after migration db server timezone set to utc but app assumes local time timestamps stored  hours off scheduled jobs fire at wrong time
+4,api pagination skipping records user svc  useast integration uses pagenumber pagination on provider api provider inserts new records between pages causing records on boundary to be skipped
+8,software misconfiguration software misconfiguration
+4,webhook signature verification bypassed auth svc  useast webhook receiver skips signature verification when xhubsignature header is absent allows unauthenticated webhook injection
+0,missing sni in tls config in production load balancer does not send sni multidomain server returns default cert instead of correct cert tls validation fails
+7,keepalive timeout mismatch between nginx and app notification svc  useast nginx keepalivetimeout s upstream app keepalive s nginx sends request on closed connection returning 
+11,unsafe reflection in plugin loader payment svc  useast plugin class name loaded from user config file passed directly to classforname without allowlist check
+5,memory mapped file growing without bound order svc  useast application memorymaps log file for fast append file grows to gb causing mmap region to exceed process virtual memory limit
+1,unlogged table data loss after crash user svc  useast session table created as unlogged for performance server crash causes complete session data loss logging out all users
+1,orphaned blob files after record delete order svc  useast application deletes db record but not associated s file gb of orphaned files accumulate over  months
+10,unprotected actuator endpoints exposed order svc  useast spring boot actuator env and heapdump endpoints publicly accessible exposing environment variables with db credentials
+11,file upload mime type bypass search svc  useast mime type validated only from contenttype header which attacker controls executable disguised as image uploaded
+5,netty buffer pool not released after request in production netty bytebuf allocated for request body not released after handling direct memory grows until maxdirectmemorysize hit
+11,incorrect contenttype header api returns json body but contenttype header set to textplain causing some clients to fail parsing
+6,faulty sfp module causes link flapping  recurring dirty or defective sfp transceiver causes gbe link to flap every  minutes spanning tree reconvergence during each flap
+4,event schema version mismatch producer upgraded to schema v but consumer still on v consumer fails to deserialize new fields messages deadlettered
+5,excessive string interning order svc  useast application interns all userinput strings via stringintern string pool grows to gb with unique user data permanently held
+6,poe budget exceeded on access switch new ip cameras added exceeding switch poe budget of w switch throttles poe power cameras lose power intermittently
+0,request timeout too aggressive order svc  useast api gateway timeout set to s report generation endpoint legitimately takes s causing false timeout errors for valid requests
+10,missing rate limiting on otp endpoint auth svc  useast sms otp verification endpoint has no rate limiting attacker can attempt m otp combinations to bypass fa in hours
+8,runbook outdated leads to wrong recovery steps postdeployment oncall engineer follows outdated runbook recovery procedure references decommissioned server incident extended by  hour
+11,silent exception swallow in catch block on new infrastructure catch block logs exception but returns null caller assumes success and proceeds with null object causing cascading failures
+1,inefficient cursor pagination on large offset payment svc  useast offset  on users table requires db to scan and discard  rows on every deep page request
+1,sequence exhaustion causes insert failure after migration autoincrement sequence reaches max value int new inserts fail with duplicate key error sequence not monitored
+5,bitmap cache not bounded in mobile app in production image cache stores all decoded bitmaps without size limit app oomkilled by android after loading  images
+4,thirdparty api rate limit not handled search svc  useast integration ignores http  responses from stripe retries immediately increasing rate limit violations exponentially
+3,hypervisor live migration causing downtime search svc  useast live vm migration during cloud maintenance window causes second network disruption unhandled by singleinstance app
+11,incorrect contenttype breaks xml parser postdeployment api returns xml with contenttype textplain client xml parser rejects it fallback returns empty response to user
+11,deadlock in order and shipment tables auth svc  useast order service locks orders then shipments shipment service locks shipments then orders creating circular wait
+10,ldap injection in search filter  recurring user input appended directly to ldap filter attacker injects uid to bypass authentication
+11,stack overflow in recursive parser in production recursive json parser has no depth limit deeply nested payload causes stack overflow and service crash
+2,secrets not rotated before deploy user svc  useast deployment uses dayold db password that expired at midnight causing new pods to fail authentication immediately
+3,runaway process consumes all cpu  recurring infinite loop in data processing script pins all cpu cores other services starved monitoring alert triggers after  minutes
+5,goroutine leak in http handler goroutine spawned per request never exits on client disconnect goroutines accumulate memory and scheduler overhead grows
+8,oncall rotation gap over holiday holiday oncall schedule not updated incident during holiday has no assigned responder minute response delay
+5,offheap memory growth in native library under high load jni native library allocates offheap memory java heap stays constant while process rss grows oom at os level after days
+10,missing security headers on api responses payment svc  useast api responses lack xcontenttypeoptions xframeoptions and hsts headers enabling mime sniffing and clickjacking attacks
+11,path traversal in file download search svc  useast usersupplied filename parameter not sanitized etcpasswd returns system file contents
+10,insecure deserialization in session token notification svc  useast php session uses unserialize on cookie value attacker crafts malicious serialized object triggering rce gadget chain
+3,hardware clock drift after hypervisor migration during peak hours vm migrated to new hypervisor hardware clock resets hour drift causes event ordering failures and token expiry
+10,timing attack on password comparison  recurring password comparison uses string equality instead of constanttime comparison timing sidechannel allows password enumeration
+3,tmpfs mount fills and blocks writes during peak hours application writes temporary files to tmpfs mount with gb limit limit reached writes fail causing job failures
+0,email relay not authenticated in production outbound email relay misconfigured without smtp auth relay accepts mail from any internal host open relay abused for spam
+10,api key logged in access logs api key passed as query parameter full url including key logged by access log keys exposed in log aggregation platform
+1,pointintime recovery gap payment svc  useast wal archiving to s fails silently for  hours due to expired iam credentials creating unrecoverable gap
+4,webhook retry storm overwhelms receiver  recurring webhook sender retries immediately on timeout slow receiver triggers exponential retries from all senders simultaneously
+9,unbatched writes to time series db after upgrade metrics emitted individually per event  writess to influxdb instead of batching db write queue backs up
+9,missing connection keepalive to upstream http client to upstream api opens new tcp connection per request tls handshake overhead adds ms to each call
+1,statistics not updated after bulk load in production bulk load of m rows without analyze query planner uses stale statistics and picks wrong index queries x slower
+11,timezone handling bug in scheduler in production scheduler stores times in local timezone daylight saving transition causes jobs to fire twice or be skipped
+11,exception in static initializer crashes jvm after upgrade static initializer block throws unchecked exception class loading fails silently all requests return  with no clear log
+0,max memory limit below jvm minimum container memory limit set to mb jvm requires minimum mb to start container crashes immediately on deploy
+1,autovacuum not running on large table payment svc  useast dead tuple accumulation in m row events table bloats to x size as autovacuum cannot keep up with delete rate
+7,cloudfront serving wrong origin response notification svc  useast cloudfront cache key does not include acceptlanguage header french users receive english cached response
+4,payment gateway double charge on retry search svc  useast network timeout causes charge request retry without idempotency key gateway processes both requests charging customer twice
+3,grub misconfiguration prevents boot after kernel update kernel update changes kernel path grub config not updated server unbootable after restart requires console access to fix
+5,offheap memory growth in native library after migration jni native library allocates offheap memory java heap stays constant while process rss grows oom at os level after days
+7,cloudfront serving wrong origin response search svc  useast cloudfront cache key does not include acceptlanguage header french users receive english cached response
+3,misconfigured cloud storage acl making data public order svc  useast s bucket acl changed to publicread during debugging session customer invoice pdfs publicly accessible for  hours
+1,crossdatabase query via linked server times out in production linked server query pulls m rows across network for local filtering instead of pushing predicate to remote  minute timeout
+11,incorrect http method in rest client  recurring sdk uses get instead of post for create endpoint large payloads silently truncated by url length limit causing data loss
+7,syn cookies disabled during syn flood during peak hours syn cookie protection disabled on load balancer syn flood attack exhausts halfopen connection table new connections rejected
+5,ggc humongous allocation triggers full gc under high load single mb allocation exceeds g region size triggering humongous allocation path causes stoptheworld full gc
+0,firewall allowlist too permissive during peak hours egress firewall allows  data exfiltration possible to any external ip violates compliance requirements
+2,service account missing required permission on new infrastructure deployment uses service account without read permission on configmaps app fails to start with rbac forbidden error
+10,hardcoded aws credentials in source code search svc  useast aws access key and secret committed to git history  months ago key still active and used for s access
+6,nic firmware bug causes random resets after migration intel x nic firmware bug triggers driver reset under specific traffic patterns link drops for  seconds periodically
+7,tls  enabled after compliance audit legacy tls  reenabled on load balancer by mistake during troubleshooting session fails pci dss compliance scan
+2,artifact signed with expired certificate payment svc  useast code signing certificate expired ci pipeline does not check certificate validity and deploys unsigned artifact
+5,memory mapped file growing without bound payment svc  useast application memorymaps log file for fast append file grows to gb causing mmap region to exceed process virtual memory limit
+2,fluentd daemonset not updated after node pool change new node pool added with different os fluentd daemonset uses old log path logs from new nodes never collected
+8,connector corrosion connector corrosion
+10,insecure direct object reference in file download after migration file download uses sequential integer id users enumerate ids to download other users private files
+11,deadlock in orm lazy loading after upgrade orm lazyloads related entity inside transaction that holds lock on parent child query waits for same lock causing deadlock
+4,graphql n across service boundary in production graphql resolver fetches related entities one at a time across service boundary  nodes trigger  http calls
+1,schema migration locks production table alter table add column with default locks entire table  minute migration blocks all writes causing incident
+10,verbose error messages leak stack traces during peak hours production error handler returns full stack trace including file paths and library versions in api response
+1,implicit type casting killing index search svc  useast query filters int column with varchar parameter causing implicit cast that prevents index usage on m row table
+2,wrong docker registry credentials after migration image pull secret references old registry credentials after registry migration all pods fail with imagepullbackoff
+3,hugepages not configured for database  recurring postgresql runs without hugepages on gb ram server tlb thrashing causes  performance regression vs expected
+8,monitoring gap for new service after upgrade new microservice deployed without configuring alerts memory leak goes undetected for  days until user complaints surface
+0,default credentials not changed postdeployment monitoring system deployed with default adminadmin credentials accessible from internal network security scan flags finding
+3,raid degraded after silent disk failure one disk in raid array failed silently  months ago second disk failure takes array offline with no redundancy remaining
+9,database cursor not closed after streaming payment svc  useast serverside db cursor opened for streaming large result set not closed on client disconnect cursors accumulate locking table
+11,missing csrf token validation during peak hours statechanging post endpoint skips csrf token check attacker crafts page that submits form as authenticated user
+3,systemd unit dependency cycle prevents start in production systemd unit file has circular dependency service fails to start after reboot manual intervention required each time
+6,congested switch buffers congested switch buffers
+5,protobuf deserialization creates excess objects during peak hours protobuf message deserialized repeatedly in hot path creating millions of shortlived objects gc pressure causes throughput drop
+0,email relay not authenticated under high load outbound email relay misconfigured without smtp auth relay accepts mail from any internal host open relay abused for spam
+11,missing lock on singleton initialization after migration singleton lazyinitialization not threadsafe two threads simultaneously check null and create two instances causing state split
+4,erp integration losing decimal precision erp system uses  decimal places integration truncates to  places before sending  rounding accumulates to k monthly error
+2,terraform drift causes plan failures user svc  useast manual change made to security group in aws console causes terraform state drift next plan fails with conflict error
+2,production deployment missing db migration auth svc  useast developer forgot to include migration file in pr app deployed expecting new column that does not exist in schema
