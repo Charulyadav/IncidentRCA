@@ -1,4 +1,3 @@
-import argparse
 import json
 from pathlib import Path
 from data import PAD_IDX, prepare_Data
@@ -7,6 +6,7 @@ from torch.utils.data import DataLoader
 from models import LSTMTextClassifier
 from typing import Counter, Dict, List, Tuple
 from utils import EarlyStopper
+import yaml
 
 
 def train_one_epoch( model: LSTMTextClassifier, loader: DataLoader, criterion: torch.nn.Module, 
@@ -68,71 +68,52 @@ def save_vocab(vocab: Dict[str, int], path: str) -> None:
         json.dump(vocab, f, indent=2)
 
 
-def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Train multilayer LSTM text classifier")
-    parser.add_argument("--train-csv", type=str, default="data/processed/train_minimal.csv")
-    parser.add_argument("--val-csv", type=str, default="data/processed/test_minimal.csv")
-    parser.add_argument("--text-col", type=str, default="clean_col")
-    parser.add_argument("--label-col", type=str, default="category_encoded")
-    parser.add_argument("--epochs", type=int, default=8)
-    parser.add_argument("--batch-size", type=int, default=64)
-    parser.add_argument("--lr", type=float, default=1e-3)
-    parser.add_argument("--min-freq", type=int, default=1)
-    parser.add_argument("--embedding-dim", type=int, default=128)
-    parser.add_argument("--hidden-dim", type=int, default=256)
-    parser.add_argument("--num-layers", type=int, default=2)
-    parser.add_argument("--dropout", type=float, default=0.3)
-    parser.add_argument("--bidirectional", action="store_true")
-    parser.add_argument("--patience", type=int, default=5)
-    parser.add_argument("--min-delta", type=float, default=0.001)
-    parser.add_argument("--output-dir", type=str, default="outputs/")
-    return parser.parse_args()
+def load_config(config_path) -> Dict:
+    with open(config_path, "r", encoding="utf-8") as f:
+        return yaml.safe_load(f)
 
 
 def main() -> None:
-    args = parse_args()
+    config = load_config("config.yaml")
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     data = prepare_Data(
-        train_csv_path=args.train_csv,
-        val_csv_path=args.val_csv,
-        text_col=args.text_col,
-        label_col=args.label_col
+        train_csv_path=config["train_csv"],
+        val_csv_path=config["val_csv"],
+        text_col=config["text_col"],
+        label_col=config["label_col"]
     )
-    train_loader, val_loader, num_classes = data.get_DataLoaders(args.batch_size)
+    train_loader, val_loader, num_classes = data.get_DataLoaders(config["batch_size"])
     print(f"Loaded data with {num_classes} classes. Train batches: {len(train_loader)}, Val batches: {len(val_loader)}")
     print("vocab size:", len(data.vocab))
-    save_vocab(data.vocab, args.output_dir + "vocab.json")
-    exit(0)
 
     model = LSTMTextClassifier(
         vocab_size=len(data.vocab),
-        embedding_dim=args.embedding_dim,
-        hidden_dim=args.hidden_dim,
+        embedding_dim=config["embedding_dim"],
+        hidden_dim=config["hidden_dim"],
         num_classes=num_classes,
-        num_layers=args.num_layers,
-        bidirectional=args.bidirectional,
+        num_layers=config["num_layers"],
+        bidirectional=config["bidirectional"],
         pad_idx=PAD_IDX,
-        dropout=args.dropout,
+        dropout=config["dropout"],
     ).to(device)
 
     criterion = torch.nn.CrossEntropyLoss()
-    optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
+    optimizer = torch.optim.Adam(model.parameters(), lr=config["lr"])
 
-    output_dir = Path(args.output_dir)
+    output_dir = Path(config["output_dir"])
     output_dir.mkdir(parents=True, exist_ok=True)
     model_path = output_dir / "best_lstm_classifier.pt"
-    vocab_path = output_dir / "vocab.json"
 
+    early_stopper = EarlyStopper(patience=config["patience"], min_delta=config["min_delta"])
 
-    early_stopper = EarlyStopper(patience=args.patience, min_delta=args.min_delta)
-    for epoch in range(1, args.epochs + 1):
+    for epoch in range(1, config["epochs"] + 1):
         train_loss, train_acc = train_one_epoch(model, train_loader, criterion, optimizer, device)
         val_loss, val_acc = evaluate(model, val_loader, criterion, device)
 
         should_stop = early_stopper(val_acc, model.state_dict())
         print(
-            f"Epoch {epoch:02d}/{args.epochs} | "
+            f"Epoch {epoch}/{config['epochs']} | "
             f"train_loss={train_loss:.4f} train_acc={train_acc:.4f} | "
             f"val_loss={val_loss:.4f} val_acc={val_acc:.4f}"
         )
@@ -141,13 +122,11 @@ def main() -> None:
             torch.save(model.state_dict(), model_path)
 
         if should_stop:
-            print(f"Early stopping triggered at epoch {epoch:02d}")
+            print(f"Early stopping triggered at epoch {epoch}")
             break
 
-    save_vocab(data.vocab, vocab_path)
     print(f"Best validation accuracy: {early_stopper.best_accuracy:.4f}")
     print(f"Saved model to: {model_path}")
-    print(f"Saved vocab to: {vocab_path}")
 
 
 if __name__ == "__main__":
