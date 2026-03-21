@@ -1,0 +1,15 @@
+train_csv: data/processed/train_minimal.csv
+val_csv: data/processed/test_minimal.csv
+text_col: clean_col
+label_col: category_encoded
+epochs: 8
+batch_size: 64
+lr: 0.001
+embedding_dim: 128
+hidden_dim: 256
+num_layers: 2
+dropout: 0.3
+bidirectional: false
+patience: 5
+min_delta: 0.001
+output_dir: outputs/
