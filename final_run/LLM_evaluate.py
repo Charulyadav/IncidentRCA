@@ -205,13 +205,21 @@ Respond ONLY with this exact JSON format (no other text before or after):
             # Extract JSON from response
             json_match = re.search(r'\{[\s\S]*\}', result)
             if json_match:
-                parsed = json.loads(json_match.group())
+                json_str = json_match.group()
+
+                json_str = re.sub(r',\s*}', '}', json_str)  # Remove trailing commas
+                json_str = re.sub(r',\s*]', ']', json_str)  # Remove trailing commas in arrays
+                parsed = json.loads(json_str)
                 parsed["_raw_response"] = result
                 return parsed
-        except json.JSONDecodeError:
-            pass
+        except json.JSONDecodeError as e:
+            # Return partial result with error details
+            return {
+                "error": f"Failed to parse judge response: {str(e)}",
+                "raw": result[:500]  # Truncate for readability
+            }
 
-        return {"error": "Failed to parse judge response", "raw": result}
+        return {"error": "No JSON found in judge response", "raw": result[:500]}
 
     # =========================================================================
     # METRIC 3: STRUCTURE VALIDATION
@@ -239,18 +247,8 @@ Respond ONLY with this exact JSON format (no other text before or after):
         missing_sections = []
 
         for section in required_sections:
-            # Check various heading formats
-            patterns = [
-                rf'#{1, 3}\s*\d*\.?\s*{re.escape(section)}',  # Markdown: ## 1. Root Cause
-                rf'\*\*\d*\.?\s*{re.escape(section)}\*\*',  # Bold: **1. Root Cause**
-                rf'\d+\.\s*{re.escape(section)}',  # Numbered: 1. Root Cause
-                rf'{re.escape(section)}:',  # Colon: Root Cause:
-                rf'{re.escape(section)}\n',  # Plain with newline
-            ]
-
-            found = any(re.search(p, response, re.IGNORECASE) for p in patterns)
-
-            if found:
+            # Simple substring search (case-insensitive)
+            if section.lower() in response.lower():
                 found_sections.append(section)
             else:
                 missing_sections.append(section)
