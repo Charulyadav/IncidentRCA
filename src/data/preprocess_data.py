@@ -196,7 +196,7 @@ def verify_output():
 
     print("\nAll files verified successfully!")
 
-if __name__ == "__main__":
+if __name__ == "__main__":ere
     df = load_data()
     df = standardize_priority(df)
     df = merge_rare_categories(df)
