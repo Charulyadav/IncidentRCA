@@ -32,7 +32,7 @@ TEST_INCIDENTS = [
 def call_llm(prompt: str) -> str:
     """Call Ollama LLM API."""
     payload = {
-        "model": "llama3.2:3b",
+        "model": "mistral:7b",
         "prompt": prompt,
         "stream": False,
         "options": {
