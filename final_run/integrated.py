@@ -19,7 +19,7 @@ def analyze_incident(
         ml_confidence: float = None
 ) -> str:
     """
-    Analyze an IT incident and generate possible solutions using llama3.2:3b.
+    Analyze an IT incident and generate possible solutions using mistral:7b.
 
     Args:
         issue_name: Name/title of the incident
@@ -84,7 +84,7 @@ Be specific, actionable, and prioritize solutions based on the incident's priori
 """
 
     payload = {
-        "model": "llama3.2:3b",
+        "model": "mistral:7b",
         "prompt": prompt,
         "stream": False,
         "options": {
