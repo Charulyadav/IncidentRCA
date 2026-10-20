@@ -9,7 +9,7 @@ embedding_dim: 128
 hidden_dim: 256
 num_layers: 2
 dropout: 0.3
-bidirectional: false
+bidirectional: true
 patience: 5
 min_delta: 0.001
 output_dir: outputs/
