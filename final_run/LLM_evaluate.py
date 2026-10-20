@@ -10,7 +10,7 @@ from integrated import process_incident
 class RCAEvaluator:
     """Evaluator for RCA system outputs."""
 
-    def __init__(self, judge_model: str = "mistral:7b"):
+    def __init__(self, judge_model: str = "llama3.2:3b"):
         self.judge_model = judge_model
         self.base_url = "http://localhost:11434/api/generate"
         print(f"Evaluator initialized with judge model: {judge_model}")
