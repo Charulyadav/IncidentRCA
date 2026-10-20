@@ -78,7 +78,7 @@ if analyze_button:
                 st.session_state.result = result
 
                 # Run evaluation
-                evaluator = RCAEvaluator(judge_model="mistral:7b")
+                evaluator = RCAEvaluator(judge_model="llama3.2:3b")
                 incident_query = f"Issue: {issue_name}\nDescription: {issue_description}\nPriority: {priority}"
                 evaluation = evaluator.full_evaluation(incident_query, result["llm_analysis"])
                 st.session_state.evaluation = evaluation
